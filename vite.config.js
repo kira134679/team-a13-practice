@@ -40,13 +40,10 @@ export default defineConfig({
       input: Object.fromEntries(
         glob
           .sync('pages/**/*.html')
-          .map((file) => [
-            path.relative(
-              'pages',
-              file.slice(0, file.length - path.extname(file).length)
-            ),
+          .map(file => [
+            path.relative('pages', file.slice(0, file.length - path.extname(file).length)),
             fileURLToPath(new URL(file, import.meta.url)),
-          ])
+          ]),
       ),
     },
     outDir: 'dist',
