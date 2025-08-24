@@ -49,4 +49,7 @@ npm run deploy
 ## 專案成員
 
 <!-- 下方新增一行填寫自己的暱稱 -->
-- Eric
+
+yuju
+Chen
+Eric
