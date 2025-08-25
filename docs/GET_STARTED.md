@@ -81,3 +81,41 @@ git push -u origin 你的branch名稱
 
 - [剛才的 Commit 後悔了，想要拆掉重做...(git reset)](https://gitbook.tw/chapters/using-git/reset-commit)
 - [另一種合併方式（使用 rebase）](https://gitbook.tw/chapters/branch/merge-with-rebase)(進階，需小心使用)
+
+## Extras
+
+### 如何啟用 stylelint 檢查 scss
+
+1.  vscode > 設定，查詢 stylelint ，找到 Stylelint: Validate，加上 scss 就可以了
+
+![image](/docs/images/add-scss-to-stylelint-check.png)
+
+或者，
+
+2. 調整 vscode 的 settings.json(和方法1是同個意思)
+
+_.vscode/settings.json_
+
+```json
+{
+  // 這裡官方文件建議關閉 vscode 的預設檢查，避免衝突
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+
+  // 將 scss 添加到 stylelint.validate
+  "stylelint.validate": ["css", "postcss", "scss"],
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // 設定存檔時對可修復的錯誤自動修正
+  "[scss]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  }
+}
+```
+
+詳細可參考: [官方擴充功能文件](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint#stylelintvalidate)
