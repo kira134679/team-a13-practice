@@ -1,0 +1,1 @@
+printf "\n\033[32m✅ 每次 commit ， husky 會執行 pre-commit 的 script\033[0m\n\n"
